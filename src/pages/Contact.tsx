@@ -59,18 +59,7 @@ ${data.message}
               </h2>
               
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-yellow-100 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-yellow-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('address')}</h3>
-                    <p className="text-gray-600">
-                      123 Avenue des Stands<br />
-                      75001 Paris, France
-                    </p>
-                  </div>
-                </div>
+      
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-yellow-100 p-3 rounded-lg">
@@ -93,35 +82,11 @@ ${data.message}
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-yellow-100 p-3 rounded-lg">
-                    <Clock className="w-6 h-6 text-yellow-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Horaires</h3>
-                    <p className="text-gray-600">
-                      Lundi - Vendredi : 9h00 - 18h00<br />
-                      Samedi : 9h00 - 12h00
-                    </p>
-                  </div>
-                </div>
+              
               </div>
 
               {/* Map */}
-              <div className="mt-8">
-                <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991441987234!2d2.334737!3d48.860611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sLouvre%20Museum!5e0!3m2!1sen!2sfr!4v1635424800000!5m2!1sen!2sfr"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, borderRadius: '0.5rem' }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="RBey Events Location"
-                  ></iframe>
-                </div>
-              </div>
+             
             </div>
 
             {/* Contact Form */}

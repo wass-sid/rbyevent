@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Settings, Award, Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import pers from "../assets/person.jpg"
+import serv2 from "../assets/service2.jpg"
+import serv1 from "../assets/service1.jpg"
 
 const Home = () => {
   const { t } = useLanguage();
@@ -12,13 +14,13 @@ const Home = () => {
       icon: Settings,
       title: t('serviceStands'),
       description: t('serviceStandsDesc'),
-      image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: serv2
     },
     {
       icon: Award,
       title: t('serviceSetup'),
       description: t('serviceSetupDesc'),
-      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: serv1
     },
     {
       icon: Users,

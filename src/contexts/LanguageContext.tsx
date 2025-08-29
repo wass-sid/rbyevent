@@ -69,7 +69,7 @@ const translations = {
     // Home page
     heroTitle: 'RBey Events',
     heroSubtitle: 'Your trusted partner for exceptional exhibition stands',
-    heroDescription: 'For over 10 years, we create memorable event experiences with our custom stands, qualified staff and recognized expertise.',
+ heroDescription: "RB Events offers a full range of services to support companies in their professional events. We provide stewards and hostesses (OTS) for welcoming and guiding visitors, setup assistants for stand installation, as well as customized stand design and construction solutions. We also support companies by facilitating their exhibitors’ participation in trade shows. In addition, we offer equipment rental (PCs, printers, check-in/check-out systems, etc.) to ensure smooth and professional event organization.",
     discoverButton: 'Discover our projects',
     
     // Services
