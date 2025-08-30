@@ -1,38 +1,46 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone} from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import { FaWhatsapp } from "react-icons/fa";
+import emailjs from "emailjs-com";
 interface ContactFormData {
   name: string;
   email: string;
   phone: string;
-  company: string;
+  salon: string;
   message: string;
+  Nombrehote: number;
+  Nombreassis: number;
+  matierels: string;
 }
 
 const Contact = () => {
   const { t } = useLanguage();
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
 
-  const onSubmit = (data: ContactFormData) => {
-    const emailSubject = 'Demande de contact - RBey Events';
-    const emailBody = `
-Nouvelle demande de contact :
-
-Nom : ${data.name}
-Email : ${data.email}
-Téléphone : ${data.phone}
-Entreprise : ${data.company}
-
-Message :
-${data.message}
-    `;
-
-    const mailtoLink = `mailto:rbeyevents@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
-    
-    reset();
+const onSubmit = (data: ContactFormData) => {
+    emailjs.send(
+      "service_c1tow8b",   // Remplace par ton Service ID
+      "template_jcrmxgf",  // Remplace par ton Template ID
+      {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        salon: data.salon,
+        message: data.message,
+        nombrehote: data.Nombrehote,
+        nombreassis: data.Nombreassis,
+        matierels: data.matierels,
+      },
+      "fnrV-YzVRPUMOL6py"    // Remplace par ton Public Key
+    ).then(() => {
+      alert("Message envoyé avec succès !");
+      reset();
+    }).catch((err) => {
+      console.error(err);
+      alert("Erreur lors de l'envoi du message.");
+    });
   };
 
   return (
@@ -43,8 +51,7 @@ ${data.message}
             {t('contactTitle')}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Une question ? Un projet ? Notre équipe est là pour vous accompagner dans la réalisation 
-            de vos événements exceptionnels.
+           {t('contactdes')}
           </p>
         </div>
       </section>
@@ -55,7 +62,7 @@ ${data.message}
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Nos Coordonnées
+               {t('ourcontact')}
               </h2>
               
               <div className="space-y-6">
@@ -67,6 +74,16 @@ ${data.message}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('phone')}</h3>
+                    <p className="text-gray-600">+213 5 60 70 00 73</p>
+                    <p className="text-gray-600">+213 5 60 45 68 60</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-yellow-100 p-3 rounded-lg">
+                    <FaWhatsapp className="w-6 h-6 text-yellow-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('Whatsapp')}</h3>
                     <p className="text-gray-600">+213 5 60 70 00 73</p>
                     <p className="text-gray-600">+213 5 60 45 68 60</p>
                   </div>
@@ -93,19 +110,19 @@ ${data.message}
             <div>
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                  Envoyez-nous un Message
+             {t('sendMail')}
                 </h2>
                 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom complet *
+                   {t('fullNameLabel')}
                     </label>
                     <input
                       type="text"
                       {...register('name', { required: 'Le nom est requis' })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      placeholder="Votre nom complet"
+                      placeholder={t('fullNamePlaceholder')}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -115,13 +132,13 @@ ${data.message}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
+                       {t('emailLabel')}
                       </label>
                       <input
                         type="email"
                         {...register('email', { required: 'L\'email est requis' })}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                        placeholder="votre@email.com"
+                        placeholder={t('emailPlaceholder')}
                       />
                       {errors.email && (
                         <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -130,38 +147,71 @@ ${data.message}
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Téléphone
+                  {t('phoneLabel')}
                       </label>
                       <input
                         type="tel"
                         {...register('phone')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                        placeholder="Votre téléphone"
+                        placeholder={t('phonePlaceholder')}
                       />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Entreprise
+                      {t('salonLabel')}
                     </label>
                     <input
                       type="text"
-                      {...register('company')}
+                      {...register('salon')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      placeholder="Nom de votre entreprise"
+                      placeholder={t('salonPlaceholder')}
                     />
                   </div>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('hostessesLabel')}</label>
+                  <input
+                    type="number"
+                    {...register('Nombrehote', { required: 'Nombre de Hôtesses' })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    placeholder={t('hostessesPlaceholder')}
+                  />
+              
+                </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('setupAssistantsLabel')}</label>
+                     <input
+                    type="number"
+                    {...register('Nombreassis', { required: 'Nombre Assistants requis'})}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    placeholder={t('setupAssistantsPlaceholder')}
+                  />
+                
+                </div>
+              </div>
+                    <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                     {t('equipmentLabel')}
+                    </label>
+                    <input
+                      type="text"
+                      {...register('matierels')}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      placeholder={t('equipmentPlaceholder')}
+                    />
+                  </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                      {t("messageLabel")}
                     </label>
                     <textarea
                       {...register('message', { required: 'Le message est requis' })}
                       rows={5}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      placeholder="Décrivez votre projet ou votre demande..."
+                      placeholder={t('messagePlaceholder')}
                     />
                     {errors.message && (
                       <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
@@ -172,7 +222,7 @@ ${data.message}
                     type="submit"
                     className="w-full bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   >
-                    {t('send')} le Message
+                    {t('send')}
                   </button>
                 </form>
               </div>

@@ -1,155 +1,146 @@
 import React from "react";
 import { Calendar, MapPin } from "lucide-react";
+// j'imagine que ton hook est là
 import vod1 from "../assets/VID-20250823-WA0001.mp4";
 import vod2 from "../assets/VID-20250823-WA0002.mp4";
 import vod3 from "../assets/VID-20250824-WA0001.mp4";
 import vod4 from "../assets/VID-20250824-WA0002.mp4";
+import vod5 from "../assets/WhatsApp Vidéo 2025-08-30 à 15.57.03_02919c78.mp4";
 import salon1 from "../assets/salon1.jpg";
 import salon2 from "../assets/salon2.png";
+import salon3 from "../assets/salon3.png";
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpeg";
+import img3 from "../assets/img3.webp";
+import { useLanguage } from "../contexts/LanguageContext";
+
 const Portfolio = () => {
+  const { t } = useLanguage();
+
   const projects = [
     {
       id: 1,
-      title: "Salon de l'Auto 2024",
-      brand: "Mercedes-Benz",
-      location: "Paris Expo",
-      date: "Mars 2024",
-      image:
-        "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description:
-        "Stand de 200m² avec espace VIP et présentation de 6 véhicules premium",
-      services: ["Stand sur-mesure", "Hôtesses bilingues", "Animation"],
+      title: "Djazagro 2025",
+      brand: "Djazagro",
+      location: t("portfolio_project_location_algiersafex"),
+      date: t("portfolio_project_date_april2025"),
+      image: img1,
+      description: t("portfolio_project1_description"),
+      services: [t("service_custom_stand"), t("service_hostesses")],
     },
     {
       id: 2,
-      title: "Tech Innovation Fair 2024",
-      brand: "TechCorp",
-      location: "Lyon Convention Center",
-      date: "Février 2024",
-      image:
-        "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description:
-        "Espace technologique interactif avec démonstrations en live",
-      services: ["Design moderne", "Personnel technique", "Multimédia"],
-    },
-    {
-      id: 3,
-      title: "Foire Internationale du Luxe",
-      brand: "LuxuryBrands",
-      location: "Monaco",
-      date: "Janvier 2024",
-      image:
-        "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description:
-        "Stand premium avec matériaux nobles et éclairage sur-mesure",
-      services: ["Matériaux premium", "Éclairage LED", "Service concierge"],
-    },
-    {
-      id: 4,
-      title: "Salon de la Mode 2023",
-      brand: "Fashion Week",
-      location: "Paris Fashion Week",
-      date: "Octobre 2023",
-      image:
-        "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Espace défilé et showroom avec podium et vestiaires",
-      services: ["Podium professionnel", "Éclairage scénique", "Mannequins"],
-    },
-    {
-      id: 5,
-      title: "Expo Alimentaire Bio",
-      brand: "BioBrand",
-      location: "Marseille",
-      date: "Septembre 2023",
-      image:
-        "https://images.pexels.com/photos/2067628/pexels-photo-2067628.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Stand écologique avec dégustations et espace convivial",
+      title: "Equip auto 2025",
+      brand: "Equip auto",
+      location: t("portfolio_project_location_algiersafex"),
+      date: t("portfolio_project_date_february2025"),
+      image: img2,
+      description: t("portfolio_project2_description"),
       services: [
-        "Matériaux éco-responsables",
-        "Dégustation",
-        "Animation culinaire",
+        t("service_modern_design"),
+        t("service_custom_stand"),
+        t("service_hostesses"),
       ],
     },
     {
-      id: 6,
-      title: "Salon de l'Immobilier",
-      brand: "PropertyGroup",
-      location: "Nice",
-      date: "Août 2023",
-      image:
-        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Espace de conseil avec maquettes et présentations 3D",
-      services: ["Écrans interactifs", "Maquettes", "Conseillers spécialisés"],
+      id: 5,
+      title: "Pollutec 2025",
+      brand: "Pollutec",
+      location: t("portfolio_project_location_algiersafex"),
+      date: t("portfolio_project_date_may2025"),
+      image: img3,
+      description: t("portfolio_project3_description"),
+      services: [
+        t("service_modern_design"),
+        t("service_custom_stand"),
+        t("service_hostesses"),
+      ],
     },
   ];
+
   const projectsVod = [
     {
       id: 1,
       vod: vod1,
       title: "Djazagro",
-      description: "Stand de 200m² avec espace VIP ",
-      services: ["Stand sur-mesure"],
+      description: t("portfolio_vod_description"),
+      services: [t("service_custom_stand")],
       poster: salon1,
       bg: "#202E59",
+      time: "0:10",
     },
     {
       id: 2,
       vod: vod2,
       title: "Djazagro",
-      description: "Stand de 200m² avec espace VIP ",
-      services: ["Stand sur-mesure"],
+      description: t("portfolio_vod_description"),
+      services: [t("service_custom_stand")],
       poster: salon1,
       bg: "#202E59",
+      time: "0:32",
     },
-
     {
       id: 3,
       vod: vod3,
       title: "Equip auto",
-      description: "Stand de 200m² avec espace VIP ",
-      services: ["Stand sur-mesure"],
+      description: t("portfolio_vod_description"),
+      services: [t("service_custom_stand")],
       poster: salon2,
       bg: "#233946",
+      time: "0:36",
     },
     {
       id: 4,
       vod: vod4,
       title: "Djazagro",
-      description: "Stand de 200m² avec espace VIP ",
-      services: ["Stand sur-mesure"],
+      description: t("portfolio_vod_description"),
+      services: [t("service_custom_stand")],
       poster: salon1,
       bg: "#202E59",
+      time: "0:43",
+    },
+    {
+      id: 5,
+      vod: vod5,
+      title: "Chocaf",
+      description: t("portfolio_vod_description"),
+      services: [t("service_custom_stand")],
+      poster: salon3,
+      bg: "black",
+      time: "1:47",
     },
   ];
+
   return (
     <div className="pt-16">
+      {/* Section titre */}
       <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">
-            Nos <span className="text-yellow-500">Réalisations</span>
+            {t("portfolio_title")}{" "}
+            <span className="text-yellow-500">{t("portfolio_highlight")}</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Découvrez nos projets les plus marquants et l'excellence de nos
-            prestations à travers une sélection de stands exceptionnels.
+            {t("portfolio_description")}
           </p>
         </div>
       </section>
 
+      {/* Section vidéos */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nos Réalisations en <span className="text-yellow-500">Vidéo</span>
+              {t("portfolio_video_title")}{" "}
+              <span className="text-yellow-500">{t("portfolio_video_highlight")}</span>
             </h2>
             <div className="w-24 h-1 bg-yellow-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Découvrez notre personnel en action lors des plus grands
-              événements
+              {t("portfolio_video_description")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Video placeholders - Replace with your actual videos */}
             {projectsVod.map((vod, index) => (
               <div
                 key={index}
@@ -158,12 +149,16 @@ const Portfolio = () => {
                 <div className="relative h-64 bg-gray-900 flex items-center justify-center">
                   <video
                     controls
-                    style={{ width: "100%", height: "100%",backgroundColor:vod.bg }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: vod.bg,
+                    }}
                     className="rounded-lg"
                     poster={vod.poster}
                   >
                     <source src={vod.vod} />
-                    Your browser does not support the video tag.
+                    {t("video_not_supported")}
                   </video>
                 </div>
                 <div className="p-6">
@@ -172,7 +167,7 @@ const Portfolio = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{vod.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">2:30 min</span>
+                    <span className="text-sm text-gray-500">{vod.time} min</span>
                     {vod.services.map((service, index) => (
                       <span
                         key={index}
@@ -189,17 +184,19 @@ const Portfolio = () => {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6">
-              Vous souhaitez voir plus de nos réalisations en vidéo ?
+              {t("portfolio_more_videos")}
             </p>
             <a
               href="/contact"
               className="inline-flex items-center space-x-2 bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              <span>Contactez-nous</span>
+              <span>{t("portfolio_contact")}</span>
             </a>
           </div>
         </div>
       </section>
+
+      {/* Section projets */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -238,7 +235,7 @@ const Portfolio = () => {
 
                   <div className="border-t pt-4">
                     <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                      Services fournis :
+                      {t("services_title")}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.services.map((service, index) => (
