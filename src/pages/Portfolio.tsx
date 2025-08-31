@@ -107,7 +107,7 @@ const Portfolio = () => {
       services: [t("service_custom_stand")],
       poster: salon3,
       bg: "black",
-      time: "1:47",
+      time: "1:48",
     },
   ];
 
