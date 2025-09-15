@@ -16,7 +16,7 @@ interface FormData {
 }
 
 // URL de ton web app GAS (remplace par celle obtenue après déploiement)
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwCScffTcfdKuncIomUMD9XRJuEb5FIxMqyeyhvXs3x8Q0xWm1v_Tq-iWwwdMz1eqxH/exec'; // Remplace par ton URL !
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOI38iqdzrPPk2Fh4mQWeE8Zlzq7WbPhuO8ugo2BMnf0K7MuT3JGDtbD_Ek-sjC76N/exec'; // Remplace par ton URL !
 
 // Convertir un fichier en base64
 const toBase64 = (file: File) =>
